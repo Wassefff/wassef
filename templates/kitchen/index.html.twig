@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello KitchenController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Users/ASUS/exam/src/Controller/KitchenController.php'|file_link(0) }}">src/Controller/KitchenController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Users/ASUS/exam/templates/kitchen/index.html.twig'|file_link(0) }}">templates/kitchen/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% for kitchen in kitchens %}
+<table border="1">
+<tr>
+<td>{{kitchen.id}}</td>
+<td>{{kitchen.name}}</td>
+<td>{{kitchen.getStaffNbr()}}</td>
+
+<td><a href="{{path('kitchen_mod',{'id':kitchen.id})}}">edit </a> </td>
+<td><a href="{{path('kitchen_delete',{'id':kitchen.id})}}">delete </a> </td>
+
+</tr>
+</table>
+{% endfor %}
+{% endblock %}
